@@ -1,0 +1,1520 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ComputeGrid BD — Distributed GPU Computing Infrastructure</title>
+    <meta
+      name="description"
+      content="ComputeGrid BD — Distributed GPU computing infrastructure platform demo originating in Bangladesh. Turn idle GPUs into verified computing power."
+    />
+    <meta property="og:title" content="ComputeGrid BD — Distributed GPU Computing Infrastructure" />
+    <meta
+      property="og:description"
+      content="Every GPU Has Value. Every Idle Hour Is an Opportunity. Interactive infrastructure prototype for distributed GPU computing."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.6/dist/chart.umd.min.js" defer></script>
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <a href="#home" class="skip-link">Skip to main content</a>
+
+    <!-- Top Navigation Bar -->
+    <header class="site-header" id="siteHeader">
+      <div class="header-inner">
+        <a href="#home" class="brand-mark" aria-label="ComputeGrid BD Home">
+          <svg class="brand-icon" width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+            <rect x="2" y="2" width="24" height="24" rx="6" fill="url(#cgLogoGrad)" />
+            <path d="M9 10.5H13.5V15H9V10.5Z" fill="#060913" />
+            <path d="M15 9H19.5V13.5H15V9Z" fill="#E0F2FE" />
+            <path d="M9 16.5H13.5V19.5H9V16.5Z" fill="#E0F2FE" />
+            <path d="M15 15H19.5V19.5H15V15Z" fill="#060913" />
+            <defs>
+              <linearGradient id="cgLogoGrad" x1="2" y1="2" x2="26" y2="26" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#3B82F6" />
+                <stop offset="1" stop-color="#06B6D4" />
+              </linearGradient>
+            </defs>
+          </svg>
+          <span class="brand-text">ComputeGrid BD</span>
+        </a>
+
+        <nav class="main-nav" aria-label="Primary Navigation">
+          <a href="#home" class="nav-link active" data-nav="home">Home</a>
+          <a href="#how-it-works" class="nav-link" data-nav="how-it-works">How It Works</a>
+          <a href="#dashboard" class="nav-link" data-nav="providers">GPU Providers</a>
+          <a href="#developers" class="nav-link" data-nav="developers">Developers</a>
+          <a href="#marketplace" class="nav-link" data-nav="marketplace">Marketplace</a>
+          <a href="#dashboard" class="nav-link" data-nav="dashboard">Dashboard</a>
+        </nav>
+
+        <div class="header-actions">
+          <button type="button" class="btn btn-primary btn-sm" id="navGetStartedBtn">
+            Get Started
+          </button>
+          <button
+            type="button"
+            class="mobile-menu-btn"
+            id="mobileMenuBtn"
+            aria-label="Toggle navigation menu"
+            aria-expanded="false"
+            aria-controls="mobileDrawer"
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Navigation Drawer -->
+      <div class="mobile-drawer" id="mobileDrawer" hidden>
+        <nav class="mobile-nav-list" aria-label="Mobile Navigation">
+          <a href="#home" class="mobile-nav-link">Home</a>
+          <a href="#how-it-works" class="mobile-nav-link">How It Works</a>
+          <a href="#dashboard" class="mobile-nav-link">GPU Providers</a>
+          <a href="#developers" class="mobile-nav-link">Developers</a>
+          <a href="#marketplace" class="mobile-nav-link">Marketplace</a>
+          <a href="#dashboard" class="mobile-nav-link">Dashboard</a>
+          <a href="#architecture" class="mobile-nav-link">Architecture</a>
+          <a href="#roadmap" class="mobile-nav-link">Roadmap</a>
+          <button type="button" class="btn btn-primary mobile-drawer-cta" id="mobileGetStartedBtn">
+            Get Started
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- SECTION 1: LANDING HERO & LIVE NETWORK OVERVIEW -->
+      <section id="home" class="section hero-section">
+        <div class="container">
+          <div class="hero-grid">
+            <div class="hero-copy">
+              <p class="section-meta">
+                <span>Bangladesh Distributed GPU Network</span>
+                <span aria-hidden="true">·</span>
+                <span>Interactive Frontend Prototype</span>
+              </p>
+              <h1 class="hero-title">Turn Your Idle GPU Into Computing Power.</h1>
+              <p class="hero-subtitle">
+                Join a distributed GPU network. Contribute computing resources whenever your PC is
+                available and earn from verified GPU uptime.
+              </p>
+              <p class="hero-tagline">
+                “Every GPU Has Value. Every Idle Hour Is an Opportunity.”
+              </p>
+              <div class="hero-cta-row">
+                <button type="button" class="btn btn-primary" id="heroBecomeProviderBtn">
+                  Become a GPU Provider
+                </button>
+                <a href="#marketplace" class="btn btn-secondary">
+                  Explore Compute Network
+                </a>
+              </div>
+              <p class="hero-footnote">
+                No 24/7 lock-in required. Connect gaming PCs or workstations on your own schedule.
+              </p>
+            </div>
+
+            <!-- Interactive Network Visual Representation -->
+            <div class="hero-visual-panel" aria-label="Simulated Distributed GPU Topology">
+              <div class="panel-header-row">
+                <div>
+                  <h2 class="panel-title">Regional Node Topology</h2>
+                  <p class="panel-subtitle">Gaming PCs, workstations, and cloud API dispatch · Demo Data</p>
+                </div>
+                <span class="mono-meta" id="heroTopologyOnlineLabel">3 of 4 local nodes online</span>
+              </div>
+
+              <div class="topology-canvas-wrap">
+                <svg
+                  class="topology-svg"
+                  viewBox="0 0 560 320"
+                  role="img"
+                  aria-label="Diagram connecting Dhaka, Chattogram, and Sylhet GPU nodes to ComputeGrid Orchestrator and AI Compute API"
+                >
+                  <defs>
+                    <linearGradient id="linkBlue" x1="0" y1="0" x2="1" y2="0">
+                      <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.25" />
+                      <stop offset="50%" stop-color="#3B82F6" stop-opacity="0.85" />
+                      <stop offset="100%" stop-color="#8B5CF6" stop-opacity="0.35" />
+                    </linearGradient>
+                  </defs>
+
+                  <!-- Subtle Coordinate Grid -->
+                  <g stroke="rgba(148,163,184,0.07)" stroke-width="1">
+                    <line x1="0" y1="80" x2="560" y2="80" />
+                    <line x1="0" y1="160" x2="560" y2="160" />
+                    <line x1="0" y1="240" x2="560" y2="240" />
+                    <line x1="140" y1="0" x2="140" y2="320" />
+                    <line x1="280" y1="0" x2="280" y2="320" />
+                    <line x1="420" y1="0" x2="420" y2="320" />
+                  </g>
+
+                  <!-- Connection Edges -->
+                  <g id="topologyEdges">
+                    <path id="edge-node-1" class="topo-edge" d="M 118 68 C 190 68, 210 148, 268 156" />
+                    <path id="edge-node-2" class="topo-edge" d="M 118 140 C 185 140, 215 156, 268 158" />
+                    <path id="edge-node-3" class="topo-edge topo-edge-offline" d="M 118 212 C 185 212, 215 166, 268 164" />
+                    <path id="edge-node-4" class="topo-edge" d="M 118 282 C 195 282, 215 174, 268 168" />
+                    <path class="topo-edge topo-edge-core" d="M 326 160 L 424 110" />
+                    <path class="topo-edge topo-edge-core" d="M 326 160 L 424 210" />
+                  </g>
+
+                  <!-- Left Column: Contributor GPU Nodes -->
+                  <g class="topo-node" data-node-index="0">
+                    <rect x="18" y="46" width="112" height="44" rx="8" class="topo-box" />
+                    <text x="30" y="64" class="topo-label">RTX 4090 PC</text>
+                    <text x="30" y="80" class="topo-sub" id="topo-sub-0">Dhaka · Online</text>
+                  </g>
+                  <g class="topo-node" data-node-index="1">
+                    <rect x="18" y="118" width="112" height="44" rx="8" class="topo-box" />
+                    <text x="30" y="136" class="topo-label">RTX 3090 Rig</text>
+                    <text x="30" y="152" class="topo-sub" id="topo-sub-1">Chattogram · Online</text>
+                  </g>
+                  <g class="topo-node" data-node-index="2">
+                    <rect x="18" y="190" width="112" height="44" rx="8" class="topo-box topo-box-offline" />
+                    <text x="30" y="208" class="topo-label">RTX 3060 Home</text>
+                    <text x="30" y="224" class="topo-sub" id="topo-sub-2">Sylhet · Offline</text>
+                  </g>
+                  <g class="topo-node" data-node-index="3">
+                    <rect x="18" y="260" width="112" height="44" rx="8" class="topo-box" />
+                    <text x="30" y="278" class="topo-label">RTX 4070 Studio</text>
+                    <text x="30" y="294" class="topo-sub" id="topo-sub-3">Dhaka · Online</text>
+                  </g>
+
+                  <!-- Center: Orchestration Hub -->
+                  <g>
+                    <rect x="242" y="118" width="108" height="84" rx="12" class="topo-hub" />
+                    <text x="296" y="152" text-anchor="middle" class="topo-hub-title">Orchestrator</text>
+                    <text x="296" y="170" text-anchor="middle" class="topo-hub-sub">Registry &amp; Uptime</text>
+                    <text x="296" y="186" text-anchor="middle" class="topo-hub-sub" id="topoActiveVram">60 GB Online</text>
+                  </g>
+
+                  <!-- Right Column: Cloud Compute Consumers -->
+                  <g>
+                    <rect x="424" y="82" width="118" height="56" rx="8" class="topo-box topo-box-api" />
+                    <text x="436" y="106" class="topo-label">Unified API</text>
+                    <text x="436" y="122" class="topo-sub">LLM Inference Jobs</text>
+                  </g>
+                  <g>
+                    <rect x="424" y="182" width="118" height="56" rx="8" class="topo-box topo-box-api" />
+                    <text x="436" y="206" class="topo-label">AI Startups</text>
+                    <text x="436" y="222" class="topo-sub">Batch &amp; Fine-Tuning</text>
+                  </g>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Full-Width 4-Column Live Network Overview (DEMO DATA) -->
+          <div class="demo-banner-row">
+            <span class="demo-notice-label">SIMULATED DEMO DATA</span>
+            <span class="demo-notice-text">
+              Figures below update dynamically when you connect or disconnect GPUs in the Provider Dashboard.
+            </span>
+          </div>
+
+          <div class="kpi-grid-4" aria-label="Simulated Network Overview">
+            <article class="metric-card">
+              <p class="metric-label">Total Registered GPUs (Demo)</p>
+              <p class="metric-value tabular-nums" id="heroTotalGpus">142</p>
+              <p class="metric-hint" id="heroTotalGpusHint">Includes 4 interactive local nodes</p>
+            </article>
+            <article class="metric-card">
+              <p class="metric-label">Online GPUs (Demo)</p>
+              <p class="metric-value tabular-nums text-accent-cyan" id="heroOnlineGpus">108</p>
+              <p class="metric-hint" id="heroOnlineGpusHint">3 of 4 local nodes active</p>
+            </article>
+            <article class="metric-card">
+              <p class="metric-label">Available GPU Memory (Demo)</p>
+              <p class="metric-value tabular-nums" id="heroAvailableVram">1,980 GB</p>
+              <p class="metric-hint">Aggregated online VRAM pool</p>
+            </article>
+            <article class="metric-card">
+              <p class="metric-label">Verified GPU Hours (Demo)</p>
+              <p class="metric-value tabular-nums" id="heroVerifiedHours">18,417.5 hrs</p>
+              <p class="metric-hint">Counted from verified heartbeats</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 2: HOW IT WORKS -->
+      <section id="how-it-works" class="section section-alt">
+        <div class="container">
+          <div class="section-header">
+            <p class="section-meta">
+              <span>Platform Workflow</span>
+              <span aria-hidden="true">·</span>
+              <span>Intermittent Participation Friendly</span>
+            </p>
+            <h2 class="section-title">How ComputeGrid BD Works</h2>
+            <p class="section-desc">
+              Contributors keep full control of their personal hardware and participate whenever their
+              computers are powered on and idle.
+            </p>
+          </div>
+
+          <div class="steps-grid">
+            <article class="step-card">
+              <span class="step-index tabular-nums">01</span>
+              <h3 class="step-title">Connect Your GPU</h3>
+              <p class="step-body">
+                Users register and connect their gaming PC or workstation without committing to
+                permanent server uptime.
+              </p>
+            </article>
+            <article class="step-card">
+              <span class="step-index tabular-nums">02</span>
+              <h3 class="step-title">Install GPU Agent</h3>
+              <p class="step-body">
+                A lightweight agent reports GPU specifications, VRAM capacity, thermal state, and
+                current availability.
+              </p>
+            </article>
+            <article class="step-card">
+              <span class="step-index tabular-nums">03</span>
+              <h3 class="step-title">Monitor Uptime</h3>
+              <p class="step-body">
+                The platform tracks online status, hardware health, and verified usable availability
+                via periodic heartbeats.
+              </p>
+            </article>
+            <article class="step-card">
+              <span class="step-index tabular-nums">04</span>
+              <h3 class="step-title">Earn Rewards</h3>
+              <p class="step-body">
+                Contributors receive compensation based primarily on their verified usable GPU uptime.
+              </p>
+            </article>
+          </div>
+
+          <!-- Architecture Flow Illustration -->
+          <div class="flow-panel">
+            <div class="flow-panel-head">
+              <div>
+                <h3 class="panel-title">End-to-End Infrastructure Pipeline</h3>
+                <p class="panel-subtitle">Click any stage to inspect its system responsibility</p>
+              </div>
+              <span class="mono-meta" id="pipelineStageActiveTitle">Stage 01: GPU Owners</span>
+            </div>
+
+            <div class="pipeline-track" role="tablist" aria-label="Infrastructure Pipeline Stages">
+              <button type="button" class="pipeline-node active" data-stage="0" role="tab" aria-selected="true">
+                <span class="pipeline-num">01</span>
+                <span class="pipeline-name">GPU Owners</span>
+              </button>
+              <span class="pipeline-arrow" aria-hidden="true">→</span>
+              <button type="button" class="pipeline-node" data-stage="1" role="tab" aria-selected="false">
+                <span class="pipeline-num">02</span>
+                <span class="pipeline-name">GPU Agent</span>
+              </button>
+              <span class="pipeline-arrow" aria-hidden="true">→</span>
+              <button type="button" class="pipeline-node" data-stage="2" role="tab" aria-selected="false">
+                <span class="pipeline-num">03</span>
+                <span class="pipeline-name">GPU Registry</span>
+              </button>
+              <span class="pipeline-arrow" aria-hidden="true">→</span>
+              <button type="button" class="pipeline-node" data-stage="3" role="tab" aria-selected="false">
+                <span class="pipeline-num">04</span>
+                <span class="pipeline-name">Orchestration Engine</span>
+              </button>
+              <span class="pipeline-arrow" aria-hidden="true">→</span>
+              <button type="button" class="pipeline-node" data-stage="4" role="tab" aria-selected="false">
+                <span class="pipeline-num">05</span>
+                <span class="pipeline-name">Compute API</span>
+              </button>
+              <span class="pipeline-arrow" aria-hidden="true">→</span>
+              <button type="button" class="pipeline-node" data-stage="5" role="tab" aria-selected="false">
+                <span class="pipeline-num">06</span>
+                <span class="pipeline-name">AI Customers</span>
+              </button>
+            </div>
+
+            <div class="pipeline-detail-box" id="pipelineDetailBox">
+              <p class="pipeline-detail-text" id="pipelineDetailText">
+                Individual PC gamers, university labs, and creative workstations in Bangladesh opt in
+                during idle hours without needing dedicated data-center hardware.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 3: GPU PROVIDER DASHBOARD -->
+      <section id="dashboard" class="section">
+        <div class="container">
+          <div class="section-header-split">
+            <div>
+              <p class="section-meta">
+                <span>Provider Console</span>
+                <span aria-hidden="true">·</span>
+                <span>Interactive Demo Simulation</span>
+              </p>
+              <h2 class="section-title">GPU Provider Dashboard</h2>
+              <p class="section-desc">
+                Connect or disconnect demo GPUs below. Changes immediately update availability,
+                network totals, uptime eligibility, and earnings projections.
+              </p>
+            </div>
+            <div class="header-toolbar-actions">
+              <button type="button" class="btn btn-secondary btn-sm" id="connectAllGpusBtn">
+                Connect All Demo GPUs
+              </button>
+              <button type="button" class="btn btn-primary btn-sm" id="openAddGpuModalBtn">
+                + Add Demo GPU
+              </button>
+            </div>
+          </div>
+
+          <div class="dashboard-shell">
+            <!-- Dashboard Sidebar -->
+            <aside class="dash-sidebar" aria-label="Dashboard Navigation">
+              <div class="dash-sidebar-header">
+                <span class="dash-account-name">Dhaka Contributor Node</span>
+                <span class="dash-account-sub">Simulated Workspace</span>
+              </div>
+              <nav class="dash-nav">
+                <button type="button" class="dash-nav-item active" data-dash-tab="overview">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <rect x="3" y="3" width="7" height="7" rx="1.5" />
+                    <rect x="14" y="3" width="7" height="7" rx="1.5" />
+                    <rect x="3" y="14" width="7" height="7" rx="1.5" />
+                    <rect x="14" y="14" width="7" height="7" rx="1.5" />
+                  </svg>
+                  <span>Overview</span>
+                </button>
+                <button type="button" class="dash-nav-item" data-dash-tab="my-gpus">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <rect x="2" y="6" width="20" height="12" rx="2" />
+                    <circle cx="8" cy="12" r="2.5" />
+                    <path d="M14 10h4M14 14h3" stroke-linecap="round" />
+                  </svg>
+                  <span>My GPUs</span>
+                </button>
+                <button type="button" class="dash-nav-item" data-dash-tab="uptime">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path d="M3 12h4l3-7 4 14 3-7h4" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                  <span>Uptime</span>
+                </button>
+                <button type="button" class="dash-nav-item" data-dash-tab="earnings">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path d="M12 2v20M17 6H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" stroke-linecap="round" />
+                  </svg>
+                  <span>Earnings</span>
+                </button>
+                <button type="button" class="dash-nav-item" data-dash-tab="transactions">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path d="M4 6h16M4 12h16M4 18h10" stroke-linecap="round" />
+                  </svg>
+                  <span>Transactions</span>
+                </button>
+                <button type="button" class="dash-nav-item" data-dash-tab="settings">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <circle cx="12" cy="12" r="3" />
+                    <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9c.26.6.78 1 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1Z" />
+                  </svg>
+                  <span>Settings</span>
+                </button>
+              </nav>
+              <div class="dash-sidebar-footer">
+                <p class="sidebar-disclaimer">
+                  Frontend simulation only. Persisted locally via browser storage.
+                </p>
+              </div>
+            </aside>
+
+            <!-- Dashboard Main Viewport -->
+            <div class="dash-main">
+              <!-- Persistent Context Bar -->
+              <div class="dash-topbar">
+                <div class="dash-breadcrumb" id="dashBreadcrumb">
+                  Provider Console / Overview
+                </div>
+                <div class="dash-topbar-meta">
+                  <span class="mono-meta" id="dashTopbarHeartbeat">Last simulated check: Just now</span>
+                </div>
+              </div>
+
+              <!-- TAB: OVERVIEW -->
+              <div class="dash-view active" id="dashView-overview">
+                <div class="kpi-grid-4">
+                  <article class="metric-card">
+                    <p class="metric-label">Total GPUs Registered</p>
+                    <p class="metric-value tabular-nums" id="dashTotalGpus">4</p>
+                    <p class="metric-hint">Simulated local contributor devices</p>
+                  </article>
+                  <article class="metric-card">
+                    <p class="metric-label">Currently Online</p>
+                    <p class="metric-value tabular-nums text-accent-green" id="dashOnlineGpus">3</p>
+                    <p class="metric-hint" id="dashOnlineVramHint">60 GB VRAM available</p>
+                  </article>
+                  <article class="metric-card">
+                    <p class="metric-label">Verified Uptime</p>
+                    <p class="metric-value tabular-nums" id="dashVerifiedUptime">417.5 hrs</p>
+                    <p class="metric-hint" id="dashAvailabilityPctHint">75.0% fleet availability</p>
+                  </article>
+                  <article class="metric-card">
+                    <p class="metric-label">Estimated Earnings</p>
+                    <p class="metric-value tabular-nums text-accent-cyan" id="dashEstimatedEarnings">৳4,175</p>
+                    <p class="metric-hint">Illustrative model at ৳10/hr</p>
+                  </article>
+                </div>
+
+                <!-- Workload Split & Events Row -->
+                <div class="dash-two-col">
+                  <div class="dash-card">
+                    <div class="panel-header-row">
+                      <div>
+                        <h3 class="panel-title">Workload &amp; Capacity Allocation (Demo)</h3>
+                        <p class="panel-subtitle">Simulated compute distribution across your GPUs</p>
+                      </div>
+                    </div>
+                    <div class="chart-box chart-box-sm">
+                      <canvas id="overviewAllocationChart" aria-label="Workload allocation chart"></canvas>
+                    </div>
+                  </div>
+
+                  <div class="dash-card">
+                    <div class="panel-header-row">
+                      <div>
+                        <h3 class="panel-title">Recent Node Events (Simulated)</h3>
+                        <p class="panel-subtitle">Live status transitions from your actions</p>
+                      </div>
+                    </div>
+                    <ul class="event-log-list" id="dashEventLog"></ul>
+                  </div>
+                </div>
+
+                <!-- Embedded Device Table Preview -->
+                <div class="dash-card">
+                  <div class="panel-header-row">
+                    <div>
+                      <h3 class="panel-title">Registered GPU Devices (Simulated Demo Data)</h3>
+                      <p class="panel-subtitle">
+                        Use Connect / Disconnect to observe real-time network and metric updates.
+                      </p>
+                    </div>
+                    <button type="button" class="btn btn-secondary btn-sm" id="overviewManageAllBtn">
+                      Open Full Device Manager
+                    </button>
+                  </div>
+                  <div class="table-responsive">
+                    <table class="data-table" id="overviewGpuTable">
+                      <thead>
+                        <tr>
+                          <th>GPU Model</th>
+                          <th>VRAM</th>
+                          <th>Status</th>
+                          <th>Utilization</th>
+                          <th>Temperature</th>
+                          <th>Uptime</th>
+                          <th class="text-right">Controls</th>
+                        </tr>
+                      </thead>
+                      <tbody id="overviewGpuTableBody"></tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+
+              <!-- TAB: MY GPUS -->
+              <div class="dash-view" id="dashView-my-gpus" hidden>
+                <div class="dash-card">
+                  <div class="panel-header-row wrap-gap">
+                    <div>
+                      <h3 class="panel-title">My Registered GPUs (Simulated Demo Data)</h3>
+                      <p class="panel-subtitle">
+                        Filter, toggle job readiness, inspect specs, or simulate node disconnects.
+                      </p>
+                    </div>
+                    <div class="filter-bar">
+                      <input
+                        type="search"
+                        id="gpuSearchInput"
+                        class="text-input"
+                        placeholder="Search model or city..."
+                        aria-label="Search demo GPUs"
+                      />
+                      <div class="segmented-control" role="group" aria-label="Filter GPUs by status">
+                        <button type="button" class="seg-btn active" data-gpu-filter="all">All</button>
+                        <button type="button" class="seg-btn" data-gpu-filter="online">Online</button>
+                        <button type="button" class="seg-btn" data-gpu-filter="offline">Offline</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="table-responsive">
+                    <table class="data-table">
+                      <thead>
+                        <tr>
+                          <th>GPU Model</th>
+                          <th>VRAM</th>
+                          <th>Status</th>
+                          <th>Availability</th>
+                          <th>Utilization</th>
+                          <th>Temp</th>
+                          <th>Uptime</th>
+                          <th class="text-right">Actions</th>
+                        </tr>
+                      </thead>
+                      <tbody id="myGpusTableBody"></tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+
+              <!-- TAB: UPTIME (Synced Summary inside Dashboard) -->
+              <div class="dash-view" id="dashView-uptime" hidden>
+                <div class="dash-card">
+                  <div class="panel-header-row">
+                    <div>
+                      <h3 class="panel-title">Dashboard Uptime Telemetry (Simulated)</h3>
+                      <p class="panel-subtitle">
+                        Disconnected nodes stop emitting heartbeats and accrue zero verified uptime.
+                      </p>
+                    </div>
+                    <a href="#uptime-monitoring" class="btn btn-secondary btn-sm">
+                      Open Dedicated Uptime Monitor
+                    </a>
+                  </div>
+                  <div class="kpi-grid-4">
+                    <article class="metric-card">
+                      <p class="metric-label">Online Nodes</p>
+                      <p class="metric-value tabular-nums" id="dashTabOnlineCount">3 / 4</p>
+                    </article>
+                    <article class="metric-card">
+                      <p class="metric-label">Verified Uptime</p>
+                      <p class="metric-value tabular-nums" id="dashTabVerifiedHours">417.5 hrs</p>
+                    </article>
+                    <article class="metric-card">
+                      <p class="metric-label">Offline Duration</p>
+                      <p class="metric-value tabular-nums" id="dashTabOfflineHours">62.5 hrs</p>
+                    </article>
+                    <article class="metric-card">
+                      <p class="metric-label">Fleet Availability</p>
+                      <p class="metric-value tabular-nums" id="dashTabAvailability">75.0%</p>
+                    </article>
+                  </div>
+                  <div class="heartbeat-inline-bar">
+                    <span class="heartbeat-dot" id="dashHeartbeatDot" aria-hidden="true"></span>
+                    <span id="dashHeartbeatStatusText">
+                      Simulated heartbeat verification active for online nodes.
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- TAB: EARNINGS (Synced Summary inside Dashboard) -->
+              <div class="dash-view" id="dashView-earnings" hidden>
+                <div class="dash-card">
+                  <div class="panel-header-row">
+                    <div>
+                      <h3 class="panel-title">Contributor Compensation Summary (Illustrative)</h3>
+                      <p class="panel-subtitle">
+                        Calculated from verified GPU hours at the configured illustrative rate.
+                      </p>
+                    </div>
+                    <a href="#earnings" class="btn btn-secondary btn-sm">
+                      Open Interactive Calculator
+                    </a>
+                  </div>
+                  <div class="kpi-grid-4">
+                    <article class="metric-card">
+                      <p class="metric-label">Total Illustrative Earnings</p>
+                      <p class="metric-value tabular-nums text-accent-cyan" id="dashTabTotalEarn">৳4,175</p>
+                    </article>
+                    <article class="metric-card">
+                      <p class="metric-label">Today's Estimate</p>
+                      <p class="metric-value tabular-nums" id="dashTabTodayEarn">৳180</p>
+                    </article>
+                    <article class="metric-card">
+                      <p class="metric-label">Verified Hours</p>
+                      <p class="metric-value tabular-nums" id="dashTabEarnHours">417.5 hrs</p>
+                    </article>
+                    <article class="metric-card">
+                      <p class="metric-label">Pending Estimate</p>
+                      <p class="metric-value tabular-nums" id="dashTabPendingEarn">৳640</p>
+                    </article>
+                  </div>
+                </div>
+              </div>
+
+              <!-- TAB: TRANSACTIONS -->
+              <div class="dash-view" id="dashView-transactions" hidden>
+                <div class="dash-card">
+                  <div class="panel-header-row">
+                    <div>
+                      <h3 class="panel-title">Illustrative Payout Ledger (Demo Data)</h3>
+                      <p class="panel-subtitle">
+                        Simulated payout records demonstrating how verified uptime translates to settlements.
+                      </p>
+                    </div>
+                    <button type="button" class="btn btn-secondary btn-sm" id="exportLedgerBtn">
+                      Export Demo CSV
+                    </button>
+                  </div>
+                  <div class="table-responsive">
+                    <table class="data-table">
+                      <thead>
+                        <tr>
+                          <th>Reference ID</th>
+                          <th>Period</th>
+                          <th>Verified Hours</th>
+                          <th>Method (Demo)</th>
+                          <th>Status</th>
+                          <th class="text-right">Amount</th>
+                        </tr>
+                      </thead>
+                      <tbody id="transactionsTableBody"></tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+
+              <!-- TAB: SETTINGS -->
+              <div class="dash-view" id="dashView-settings" hidden>
+                <div class="dash-card">
+                  <div class="panel-header-row">
+                    <div>
+                      <h3 class="panel-title">Agent &amp; Simulation Preferences</h3>
+                      <p class="panel-subtitle">Saved locally in your browser using localStorage.</p>
+                    </div>
+                    <button type="button" class="btn btn-danger-outline btn-sm" id="resetDemoStateBtn">
+                      Reset Demo State
+                    </button>
+                  </div>
+
+                  <div class="settings-grid">
+                    <div class="setting-item">
+                      <div>
+                        <label for="settingAutoHeartbeat" class="setting-label">
+                          Automatic Simulated Heartbeat
+                        </label>
+                        <p class="setting-desc">
+                          Periodically send frontend simulation heartbeats every 3 seconds for online GPUs.
+                        </p>
+                      </div>
+                      <label class="switch">
+                        <input type="checkbox" id="settingAutoHeartbeat" checked />
+                        <span class="switch-slider"></span>
+                      </label>
+                    </div>
+
+                    <div class="setting-item">
+                      <div>
+                        <label for="settingRegionSelect" class="setting-label">
+                          Primary Contributor Region
+                        </label>
+                        <p class="setting-desc">
+                          Used as default region tag when adding simulated demo GPUs.
+                        </p>
+                      </div>
+                      <select id="settingRegionSelect" class="select-input">
+                        <option value="Dhaka">Dhaka</option>
+                        <option value="Chattogram">Chattogram</option>
+                        <option value="Sylhet">Sylhet</option>
+                        <option value="Rajshahi">Rajshahi</option>
+                      </select>
+                    </div>
+
+                    <div class="setting-item">
+                      <div>
+                        <label for="settingThermalLimit" class="setting-label">
+                          Thermal Pause Threshold (°C)
+                        </label>
+                        <p class="setting-desc">
+                          Indicative GPU temperature threshold for automatic workload pause.
+                        </p>
+                      </div>
+                      <div class="range-inline">
+                        <input type="range" id="settingThermalLimit" min="65" max="90" value="82" />
+                        <span class="mono-meta tabular-nums" id="settingThermalLimitVal">82°C</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 4: UPTIME MONITORING -->
+      <section id="uptime-monitoring" class="section section-alt">
+        <div class="container">
+          <div class="section-header-split">
+            <div>
+              <p class="section-meta">
+                <span>Uptime Verification Engine</span>
+                <span aria-hidden="true">·</span>
+                <span>Frontend Simulation Only</span>
+              </p>
+              <h2 class="section-title">GPU Uptime Monitoring &amp; Heartbeats</h2>
+              <p class="section-desc">
+                ComputeGrid BD uses periodic agent heartbeats and thermal/health checks to verify
+                usable availability. Disconnected machines emit no heartbeats and are never counted
+                as available.
+              </p>
+            </div>
+            <div class="header-toolbar-actions">
+              <button type="button" class="btn btn-secondary btn-sm" id="manualHeartbeatBtn">
+                Send Manual Heartbeat
+              </button>
+              <button type="button" class="btn btn-secondary btn-sm" id="simulateDropBtn">
+                Simulate Sudden Node Drop
+              </button>
+            </div>
+          </div>
+
+          <!-- Simulation Disclosure + Live Heartbeat Indicator -->
+          <div class="heartbeat-panel">
+            <div class="heartbeat-status-left">
+              <span class="heartbeat-dot" id="mainHeartbeatDot" aria-hidden="true"></span>
+              <div>
+                <p class="heartbeat-title" id="mainHeartbeatTitle">
+                  Simulated Heartbeat Active · Verifying Online Nodes
+                </p>
+                <p class="heartbeat-sub" id="mainHeartbeatSub">
+                  Frontend simulation only — not connected to real GPU hardware.
+                </p>
+              </div>
+            </div>
+            <div class="heartbeat-telemetry-right">
+              <div class="tele-stat">
+                <span class="tele-label">Last Pulse</span>
+                <span class="tele-val tabular-nums" id="heartbeatLastPulse">--:--:--</span>
+              </div>
+              <div class="tele-stat">
+                <span class="tele-label">Verified Pulses</span>
+                <span class="tele-val tabular-nums" id="heartbeatPulseCount">0</span>
+              </div>
+              <div class="tele-stat">
+                <span class="tele-label">Active Nodes</span>
+                <span class="tele-val tabular-nums" id="heartbeatActiveNodes">3 / 4</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="kpi-grid-4">
+            <article class="metric-card">
+              <p class="metric-label">Online Duration (Demo)</p>
+              <p class="metric-value tabular-nums text-accent-green" id="uptimeOnlineDuration">417.5 hrs</p>
+              <p class="metric-hint">Cumulative active session window</p>
+            </article>
+            <article class="metric-card">
+              <p class="metric-label">Offline Duration (Demo)</p>
+              <p class="metric-value tabular-nums" id="uptimeOfflineDuration">62.5 hrs</p>
+              <p class="metric-hint">Excluded from reward accrual</p>
+            </article>
+            <article class="metric-card">
+              <p class="metric-label">Verified Uptime (Demo)</p>
+              <p class="metric-value tabular-nums text-accent-cyan" id="uptimeVerifiedHours">417.5 hrs</p>
+              <p class="metric-hint">Passed heartbeat &amp; health checks</p>
+            </article>
+            <article class="metric-card">
+              <p class="metric-label">Availability Percentage</p>
+              <p class="metric-value tabular-nums" id="uptimeAvailabilityPct">75.0%</p>
+              <p class="metric-hint" id="uptimeFormulaHint">Based on currently connected GPUs</p>
+            </article>
+          </div>
+
+          <div class="dash-card">
+            <div class="panel-header-row">
+              <div>
+                <h3 class="panel-title">Weekly Uptime Distribution (Simulated Demo Data)</h3>
+                <p class="panel-subtitle">
+                  Verified usable hours vs. offline hours across the past 7 days
+                </p>
+              </div>
+              <span class="mono-meta" id="weeklyUptimeSummary">Avg 15.8 hrs/day verified</span>
+            </div>
+            <div class="chart-box">
+              <canvas id="weeklyUptimeChart" aria-label="Weekly GPU uptime bar chart"></canvas>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 5: CONTRIBUTOR EARNINGS & ILLUSTRATIVE CALCULATOR -->
+      <section id="earnings" class="section">
+        <div class="container">
+          <div class="section-header">
+            <p class="section-meta">
+              <span>Economic Model</span>
+              <span aria-hidden="true">·</span>
+              <span>Illustrative Model Only — Not a Guaranteed Payout</span>
+            </p>
+            <h2 class="section-title">Contributor Earnings &amp; Estimator</h2>
+            <p class="section-desc">
+              Rewards are modeled around verified usable GPU hours rather than speculative tokens.
+              Adjust the parameters below to explore the illustrative payout model.
+            </p>
+          </div>
+
+          <div class="kpi-grid-4">
+            <article class="metric-card">
+              <p class="metric-label">Total Earnings (Illustrative)</p>
+              <p class="metric-value tabular-nums text-accent-cyan" id="earnTotalAmount">৳4,175</p>
+              <p class="metric-hint">Cumulative demo balance</p>
+            </article>
+            <article class="metric-card">
+              <p class="metric-label">Today's Earnings (Illustrative)</p>
+              <p class="metric-value tabular-nums text-accent-green" id="earnTodayAmount">৳180</p>
+              <p class="metric-hint">Updates with online GPU count</p>
+            </article>
+            <article class="metric-card">
+              <p class="metric-label">Verified GPU Hours</p>
+              <p class="metric-value tabular-nums" id="earnVerifiedHours">417.5 hrs</p>
+              <p class="metric-hint">Across active &amp; historical sessions</p>
+            </article>
+            <article class="metric-card">
+              <p class="metric-label">Estimated Pending Payments</p>
+              <p class="metric-value tabular-nums" id="earnPendingAmount">৳640</p>
+              <p class="metric-hint">Next simulated settlement cycle</p>
+            </article>
+          </div>
+
+          <div class="earnings-grid">
+            <!-- Calculator Controls -->
+            <div class="dash-card">
+              <div class="panel-header-row">
+                <div>
+                  <h3 class="panel-title">Illustrative Earnings Calculator</h3>
+                  <p class="panel-subtitle">
+                    Default hypothetical benchmark: ৳10 per verified GPU hour
+                  </p>
+                </div>
+              </div>
+
+              <div class="calc-controls">
+                <div class="calc-field">
+                  <div class="calc-field-top">
+                    <label for="calcRateRange">Hourly Rate (BDT / Verified GPU Hour)</label>
+                    <span class="mono-val tabular-nums" id="calcRateDisplay">৳10 / hr</span>
+                  </div>
+                  <input type="range" id="calcRateRange" min="5" max="50" step="1" value="10" />
+                  <div class="range-bounds">
+                    <span>৳5/hr</span>
+                    <span>৳50/hr</span>
+                  </div>
+                </div>
+
+                <div class="calc-field">
+                  <div class="calc-field-top">
+                    <label for="calcHoursRange">Available Hours per Month</label>
+                    <span class="mono-val tabular-nums" id="calcHoursDisplay">240 hrs</span>
+                  </div>
+                  <input type="range" id="calcHoursRange" min="10" max="720" step="10" value="240" />
+                  <div class="range-bounds">
+                    <span>10 hrs</span>
+                    <span>720 hrs (24/7)</span>
+                  </div>
+                </div>
+
+                <div class="calc-field">
+                  <div class="calc-field-top">
+                    <label for="calcAvailRange">Verified GPU Availability Percentage</label>
+                    <span class="mono-val tabular-nums" id="calcAvailDisplay">85%</span>
+                  </div>
+                  <input type="range" id="calcAvailRange" min="10" max="100" step="5" value="85" />
+                  <div class="range-bounds">
+                    <span>10%</span>
+                    <span>100%</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="calc-formula-box">
+                <p class="calc-formula-label">Formula Breakdown</p>
+                <p class="calc-formula-math tabular-nums" id="calcFormulaLine">
+                  240 hrs × 85% availability = 204.0 verified hrs × ৳10/hr
+                </p>
+              </div>
+            </div>
+
+            <!-- Calculator Results & Chart -->
+            <div class="dash-card">
+              <div class="panel-header-row">
+                <div>
+                  <h3 class="panel-title">Projected Illustrative Output</h3>
+                  <p class="panel-subtitle">Not a guaranteed payout · Demo calculation</p>
+                </div>
+              </div>
+
+              <div class="calc-result-hero">
+                <div>
+                  <span class="calc-result-label">Estimated Monthly Earnings (Illustrative)</span>
+                  <p class="calc-result-number tabular-nums" id="calcMonthlyResult">৳2,040</p>
+                </div>
+                <div class="calc-sub-results">
+                  <div>
+                    <span class="calc-sub-label">Verified Hours/Mo</span>
+                    <strong class="tabular-nums" id="calcVerifiedHrsOut">204.0 hrs</strong>
+                  </div>
+                  <div>
+                    <span class="calc-sub-label">Estimated Yearly</span>
+                    <strong class="tabular-nums" id="calcYearlyResult">৳24,480</strong>
+                  </div>
+                </div>
+              </div>
+
+              <div class="chart-box chart-box-sm">
+                <canvas id="earningsProjectionChart" aria-label="6-month illustrative earnings projection"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 6: GPU COMPUTE MARKETPLACE -->
+      <section id="marketplace" class="section section-alt">
+        <div class="container">
+          <div class="section-header-split">
+            <div>
+              <p class="section-meta">
+                <span>Compute Supply</span>
+                <span aria-hidden="true">·</span>
+                <span>Simulated Listings — Not Purchasable Compute Resources</span>
+              </p>
+              <h2 class="section-title">GPU Compute Marketplace</h2>
+              <p class="section-desc">
+                Explore how AI teams and developers discover distributed GPUs across Bangladesh by
+                model, VRAM capacity, availability, and indicative hourly pricing.
+              </p>
+            </div>
+          </div>
+
+          <!-- Marketplace Filter Controls -->
+          <div class="marketplace-filters" role="region" aria-label="Marketplace Filters">
+            <div class="filter-group">
+              <label for="filterModel">GPU Model</label>
+              <select id="filterModel" class="select-input">
+                <option value="all">All Models</option>
+                <option value="RTX 4090">NVIDIA RTX 4090</option>
+                <option value="RTX 3090">NVIDIA RTX 3090</option>
+                <option value="RTX 4080">NVIDIA RTX 4080</option>
+                <option value="RTX 4070">NVIDIA RTX 4070</option>
+                <option value="RTX 3060">NVIDIA RTX 3060</option>
+              </select>
+            </div>
+
+            <div class="filter-group">
+              <label for="filterVram">Minimum VRAM</label>
+              <select id="filterVram" class="select-input">
+                <option value="0">Any VRAM</option>
+                <option value="12">12 GB+ VRAM</option>
+                <option value="16">16 GB+ VRAM</option>
+                <option value="24">24 GB VRAM</option>
+              </select>
+            </div>
+
+            <div class="filter-group">
+              <label for="filterAvailability">Availability</label>
+              <select id="filterAvailability" class="select-input">
+                <option value="all">All Statuses</option>
+                <option value="Online">Online Now</option>
+                <option value="Offline">Scheduled / Offline</option>
+              </select>
+            </div>
+
+            <div class="filter-group filter-group-range">
+              <div class="filter-range-head">
+                <label for="filterMaxPrice">Max Indicative Price</label>
+                <span class="mono-meta tabular-nums" id="filterMaxPriceVal">Up to ৳60/hr</span>
+              </div>
+              <input type="range" id="filterMaxPrice" min="15" max="60" step="1" value="60" />
+            </div>
+
+            <button type="button" class="btn btn-secondary btn-sm" id="resetMarketplaceFiltersBtn">
+              Reset Filters
+            </button>
+          </div>
+
+          <div class="marketplace-grid" id="marketplaceGrid"></div>
+        </div>
+      </section>
+
+      <!-- SECTION 7: DEVELOPER API DASHBOARD -->
+      <section id="developers" class="section">
+        <div class="container">
+          <div class="section-header-split">
+            <div>
+              <p class="section-meta">
+                <span>Developer Console</span>
+                <span aria-hidden="true">·</span>
+                <span>API Prototype — No Live Backend Connected</span>
+              </p>
+              <h2 class="section-title">Unified Compute Developer API</h2>
+              <p class="section-desc">
+                Route inference, fine-tuning, and batch jobs to verified online nodes through a
+                single programmatic REST interface.
+              </p>
+            </div>
+            <div class="header-toolbar-actions">
+              <button type="button" class="btn btn-secondary btn-sm" id="openApiDocsBtn">
+                API Documentation
+              </button>
+            </div>
+          </div>
+
+          <!-- API Overview Metrics -->
+          <div class="kpi-grid-4">
+            <article class="metric-card">
+              <p class="metric-label">Simulated 24h Requests</p>
+              <p class="metric-value tabular-nums" id="apiReqCount">14,820</p>
+              <p class="metric-hint">Demo inference &amp; job dispatches</p>
+            </article>
+            <article class="metric-card">
+              <p class="metric-label">Dispatch Routing Latency</p>
+              <p class="metric-value tabular-nums">42 ms</p>
+              <p class="metric-hint">Dhaka IX gateway simulation</p>
+            </article>
+            <article class="metric-card">
+              <p class="metric-label">Eligible Target Nodes</p>
+              <p class="metric-value tabular-nums text-accent-green" id="apiEligibleNodes">3 Online</p>
+              <p class="metric-hint">Synced with local GPU state</p>
+            </article>
+            <article class="metric-card">
+              <p class="metric-label">API Key Placeholder</p>
+              <p class="metric-value-sm mono-code">cgbd_demo_placeholder_0000</p>
+              <p class="metric-hint">Non-functional demo token</p>
+            </article>
+          </div>
+
+          <!-- 3-Column Developer Console Layout -->
+          <div class="dev-console-grid">
+            <!-- Left: Endpoint List & Usage Chart -->
+            <div class="dash-card">
+              <h3 class="panel-title">API Endpoints</h3>
+              <p class="panel-subtitle">Select an endpoint to preview its contract</p>
+
+              <div class="endpoint-list" id="endpointList">
+                <button type="button" class="endpoint-item active" data-endpoint="jobs">
+                  <span class="method-tag method-post">POST</span>
+                  <span class="endpoint-path">/api/v1/compute/jobs</span>
+                </button>
+                <button type="button" class="endpoint-item" data-endpoint="nodes">
+                  <span class="method-tag method-get">GET</span>
+                  <span class="endpoint-path">/api/v1/nodes/available</span>
+                </button>
+                <button type="button" class="endpoint-item" data-endpoint="status">
+                  <span class="method-tag method-get">GET</span>
+                  <span class="endpoint-path">/api/v1/compute/jobs/{id}</span>
+                </button>
+              </div>
+
+              <div class="dev-usage-chart-wrap">
+                <h4 class="mini-title">Simulated API Request Volume</h4>
+                <div class="chart-box chart-box-xs">
+                  <canvas id="apiUsageChart" aria-label="Simulated API request volume chart"></canvas>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right: Code Block, Copy & Simulated Response -->
+            <div class="dash-card">
+              <div class="panel-header-row wrap-gap">
+                <div>
+                  <h3 class="panel-title" id="activeEndpointTitle">POST /api/v1/compute/jobs</h3>
+                  <p class="panel-subtitle" id="activeEndpointDesc">
+                    Submit a containerized inference or batch workload to an eligible verified GPU node.
+                  </p>
+                </div>
+                <div class="code-actions">
+                  <button type="button" class="btn btn-secondary btn-sm" id="copyApiExampleBtn">
+                    Copy API Example
+                  </button>
+                  <button type="button" class="btn btn-primary btn-sm" id="simulateApiCallBtn">
+                    Simulate Request
+                  </button>
+                </div>
+              </div>
+
+              <div class="code-panel">
+                <div class="code-panel-bar">
+                  <span>Request Payload · JSON</span>
+                  <span>Placeholder Endpoint</span>
+                </div>
+                <pre class="code-block"><code id="apiExampleCode">{
+  "model": "example-llm",
+  "gpu_requirement": "high-memory",
+  "task_type": "inference"
+}</code></pre>
+              </div>
+
+              <div class="code-panel code-panel-response">
+                <div class="code-panel-bar">
+                  <span>Simulated Response Preview</span>
+                  <span id="apiResponseStatusLabel">HTTP 202 Accepted (Mock)</span>
+                </div>
+                <pre class="code-block"><code id="apiResponseCode">{
+  "status": "queued_simulation",
+  "note": "Frontend demo only. Click 'Simulate Request' to test dispatch against currently online demo GPUs."
+}</code></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 8: SYSTEM ARCHITECTURE & SECURITY -->
+      <section id="architecture" class="section section-alt">
+        <div class="container">
+          <div class="section-header">
+            <p class="section-meta">
+              <span>System Design</span>
+              <span aria-hidden="true">·</span>
+              <span>Fault-Tolerant &amp; Sandboxed Architecture</span>
+            </p>
+            <h2 class="section-title">Platform Architecture &amp; Node Resilience</h2>
+            <p class="section-desc">
+              Designed for intermittent consumer hardware: when a contributor shuts down their PC,
+              the verification engine detects missed heartbeats and safely reschedules workloads.
+            </p>
+          </div>
+
+          <!-- Interactive 7-Component Architecture Flow -->
+          <div class="arch-diagram-panel">
+            <div class="arch-grid" role="list" aria-label="7 Core System Architecture Components">
+              <button type="button" class="arch-card active" data-arch="0" role="listitem">
+                <span class="arch-num">01</span>
+                <h3 class="arch-title">GPU Contributor Agent</h3>
+                <p class="arch-brief">Lightweight daemon reporting hardware specs &amp; heartbeats.</p>
+              </button>
+              <span class="arch-arrow" aria-hidden="true">→</span>
+              <button type="button" class="arch-card" data-arch="1" role="listitem">
+                <span class="arch-num">02</span>
+                <h3 class="arch-title">Authentication Service</h3>
+                <p class="arch-brief">Device identity tokens &amp; contributor session verification.</p>
+              </button>
+              <span class="arch-arrow" aria-hidden="true">→</span>
+              <button type="button" class="arch-card" data-arch="2" role="listitem">
+                <span class="arch-num">03</span>
+                <h3 class="arch-title">GPU Registry</h3>
+                <p class="arch-brief">Live directory of VRAM, CUDA capability &amp; node status.</p>
+              </button>
+              <span class="arch-arrow" aria-hidden="true">→</span>
+              <button type="button" class="arch-card" data-arch="3" role="listitem">
+                <span class="arch-num">04</span>
+                <h3 class="arch-title">Uptime Verification Engine</h3>
+                <p class="arch-brief">Validates heartbeats and isolates dropped nodes.</p>
+              </button>
+              <span class="arch-arrow" aria-hidden="true">→</span>
+              <button type="button" class="arch-card" data-arch="4" role="listitem">
+                <span class="arch-num">05</span>
+                <h3 class="arch-title">Resource Orchestration Engine</h3>
+                <p class="arch-brief">Schedules jobs to healthy GPUs &amp; handles failover.</p>
+              </button>
+              <span class="arch-arrow" aria-hidden="true">→</span>
+              <button type="button" class="arch-card" data-arch="5" role="listitem">
+                <span class="arch-num">06</span>
+                <h3 class="arch-title">Compute API Gateway</h3>
+                <p class="arch-brief">Unified REST endpoint for job submission &amp; metering.</p>
+              </button>
+              <span class="arch-arrow" aria-hidden="true">→</span>
+              <button type="button" class="arch-card" data-arch="6" role="listitem">
+                <span class="arch-num">07</span>
+                <h3 class="arch-title">AI Developer Applications</h3>
+                <p class="arch-brief">Startups, researchers &amp; indie builders consuming compute.</p>
+              </button>
+            </div>
+
+            <div class="arch-inspector" id="archInspector">
+              <h4 class="arch-inspector-title" id="archInspectorTitle">
+                01. GPU Contributor Agent
+              </h4>
+              <p class="arch-inspector-desc" id="archInspectorDesc">
+                Runs safely in user space on Windows or Linux gaming PCs and workstations. Reads
+                read-only GPU telemetry (model, VRAM, temperature, utilization), opens an outbound
+                TLS connection, and executes workloads only inside isolated containers.
+              </p>
+            </div>
+          </div>
+
+          <!-- Intermittent Availability & Security Requirements -->
+          <div class="arch-two-col">
+            <article class="dash-card">
+              <h3 class="panel-title">Handling Intermittent GPU Availability</h3>
+              <p class="panel-body-text">
+                Unlike traditional data centers, personal PCs turn off unpredictably when owners game,
+                sleep, or experience power interruptions. The Uptime Verification Engine expects
+                periodic heartbeats every few seconds.
+              </p>
+              <ul class="clean-bullet-list">
+                <li>Missed heartbeats past the grace window immediately mark the node Offline in the GPU Registry.</li>
+                <li>Reward accrual pauses at the last verified heartbeat—offline hours never count.</li>
+                <li>The Resource Orchestration Engine routes new or checkpointed tasks to remaining online nodes.</li>
+              </ul>
+            </article>
+
+            <article class="dash-card">
+              <h3 class="panel-title">Production Security &amp; Deployment Requirements</h3>
+              <p class="panel-body-text">
+                This web application is a frontend prototype. A live production deployment will require
+                strict isolation and verification infrastructure:
+              </p>
+              <ul class="clean-bullet-list">
+                <li>Signed, sandboxed GPU contributor agent with no arbitrary host code execution.</li>
+                <li>Backend authentication, mutual TLS, and scoped API access control.</li>
+                <li>Containerized / microVM workload isolation and deterministic resource scheduling.</li>
+                <li>Cryptographic uptime verification, payment processing, and abuse prevention monitoring.</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 9: ABOUT / VISION & ROADMAP -->
+      <section id="roadmap" class="section">
+        <div class="container">
+          <div class="vision-block">
+            <p class="section-meta">
+              <span>Vision &amp; Roadmap</span>
+              <span aria-hidden="true">·</span>
+              <span>Originated in Bangladesh</span>
+            </p>
+            <h2 class="section-title">Building Accessible AI Infrastructure From Bangladesh</h2>
+            <p class="vision-lead">
+              Thousands of capable GPUs sit idle in gaming rigs, university labs, and creative
+              workstations across Bangladesh while local AI startups struggle with expensive foreign
+              cloud billing. ComputeGrid BD aims to turn distributed local hardware into a resilient,
+              transparent compute fabric.
+            </p>
+          </div>
+
+          <div class="roadmap-grid">
+            <article class="roadmap-card">
+              <div class="roadmap-top">
+                <span class="roadmap-phase">Phase 1</span>
+                <span class="roadmap-status">Planned</span>
+              </div>
+              <h3 class="roadmap-title">GPU Agent and Uptime Monitoring MVP</h3>
+              <p class="roadmap-desc">
+                Lightweight cross-platform desktop agent, hardware telemetry reporting, and heartbeat
+                uptime verification backend.
+              </p>
+            </article>
+
+            <article class="roadmap-card">
+              <div class="roadmap-top">
+                <span class="roadmap-phase">Phase 2</span>
+                <span class="roadmap-status">Planned</span>
+              </div>
+              <h3 class="roadmap-title">Initial Bangladesh GPU Contributor Pilot</h3>
+              <p class="roadmap-desc">
+                Closed cohort onboarding for PC owners in Dhaka, Chattogram, and Sylhet to validate
+                intermittent scheduling and local payout workflows.
+              </p>
+            </article>
+
+            <article class="roadmap-card">
+              <div class="roadmap-top">
+                <span class="roadmap-phase">Phase 3</span>
+                <span class="roadmap-status">Planned</span>
+              </div>
+              <h3 class="roadmap-title">Compute Marketplace and Developer API</h3>
+              <p class="roadmap-desc">
+                Containerized job dispatch, unified REST API for startups, and transparent VRAM/price
+                discovery marketplace.
+              </p>
+            </article>
+
+            <article class="roadmap-card">
+              <div class="roadmap-top">
+                <span class="roadmap-phase">Phase 4</span>
+                <span class="roadmap-status">Planned</span>
+              </div>
+              <h3 class="roadmap-title">Global Distributed GPU Network</h3>
+              <p class="roadmap-desc">
+                Multi-region federated orchestration connecting emerging-market compute pools with
+                global AI inference demand.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- SECTION 10: FOOTER -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand-col">
+            <p class="footer-brand">ComputeGrid BD</p>
+            <p class="footer-tagline">Every GPU Has Value. Every Idle Hour Is an Opportunity.</p>
+            <p class="footer-mission">
+              A proposed distributed GPU computing infrastructure platform originating in Bangladesh,
+              connecting idle consumer GPUs to AI developers through verified uptime.
+            </p>
+          </div>
+
+          <div class="footer-links-col">
+            <h3 class="footer-heading">Platform</h3>
+            <ul class="footer-link-list">
+              <li><a href="#home">Home</a></li>
+              <li><a href="#how-it-works">How It Works</a></li>
+              <li><a href="#dashboard">Provider Dashboard</a></li>
+              <li><a href="#uptime-monitoring">Uptime Monitoring</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-links-col">
+            <h3 class="footer-heading">Ecosystem</h3>
+            <ul class="footer-link-list">
+              <li><a href="#earnings">Earnings Estimator</a></li>
+              <li><a href="#marketplace">GPU Marketplace</a></li>
+              <li><a href="#developers">Developer API</a></li>
+              <li><a href="#architecture">System Architecture</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-links-col">
+            <h3 class="footer-heading">Contact (Placeholder)</h3>
+            <ul class="footer-link-list">
+              <li><span>Dhaka, Bangladesh</span></li>
+              <li><a href="mailto:hello@computegrid-bd.example">hello@computegrid-bd.example</a></li>
+              <li><a href="#roadmap">Planned Roadmap</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>© 2026 ComputeGrid BD. Frontend Startup Demonstration Prototype.</p>
+          <p>All metrics, GPU listings, API responses, and payouts shown are simulated demo data.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- MODAL: GPU DEVICE / MARKETPLACE DETAILS -->
+    <div class="modal-backdrop" id="detailsModal" hidden role="dialog" aria-modal="true" aria-labelledby="detailsModalTitle">
+      <div class="modal-card">
+        <div class="modal-header">
+          <div>
+            <p class="section-meta" id="detailsModalKicker">Simulated Hardware Details</p>
+            <h3 class="modal-title" id="detailsModalTitle">NVIDIA RTX 4090</h3>
+          </div>
+          <button type="button" class="modal-close-btn" data-close-modal="detailsModal" aria-label="Close modal">
+            ✕
+          </button>
+        </div>
+        <div class="modal-body" id="detailsModalBody"></div>
+        <div class="modal-footer" id="detailsModalFooter"></div>
+      </div>
+    </div>
+
+    <!-- MODAL: ADD DEMO GPU -->
+    <div class="modal-backdrop" id="addGpuModal" hidden role="dialog" aria-modal="true" aria-labelledby="addGpuModalTitle">
+      <div class="modal-card">
+        <div class="modal-header">
+          <div>
+            <p class="section-meta">Provider Onboarding Simulation</p>
+            <h3 class="modal-title" id="addGpuModalTitle">Connect a Demo GPU Node</h3>
+          </div>
+          <button type="button" class="modal-close-btn" data-close-modal="addGpuModal" aria-label="Close modal">
+            ✕
+          </button>
+        </div>
+        <form id="addGpuForm" class="modal-body form-stack">
+          <div class="form-field">
+            <label for="newGpuModel">GPU Model</label>
+            <select id="newGpuModel" class="select-input" required>
+              <option value="NVIDIA RTX 4090|24">NVIDIA RTX 4090 (24 GB VRAM)</option>
+              <option value="NVIDIA RTX 4080|16">NVIDIA RTX 4080 (16 GB VRAM)</option>
+              <option value="NVIDIA RTX 4070|12">NVIDIA RTX 4070 (12 GB VRAM)</option>
+              <option value="NVIDIA RTX 3090|24">NVIDIA RTX 3090 (24 GB VRAM)</option>
+              <option value="NVIDIA RTX 3080|10">NVIDIA RTX 3080 (10 GB VRAM)</option>
+              <option value="NVIDIA RTX 3060|12">NVIDIA RTX 3060 (12 GB VRAM)</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="newGpuCity">Contributor City (Bangladesh)</label>
+            <select id="newGpuCity" class="select-input" required>
+              <option value="Dhaka">Dhaka</option>
+              <option value="Chattogram">Chattogram</option>
+              <option value="Sylhet">Sylhet</option>
+              <option value="Rajshahi">Rajshahi</option>
+              <option value="Khulna">Khulna</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="newGpuLabel">Machine Label</label>
+            <input
+              type="text"
+              id="newGpuLabel"
+              class="text-input"
+              placeholder="e.g. Home Gaming Rig"
+              maxlength="36"
+              required
+            />
+          </div>
+          <p class="form-note">
+            This adds a simulated device to your local browser state so you can test online/offline
+            transitions and uptime calculations.
+          </p>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-close-modal="addGpuModal">Cancel</button>
+            <button type="submit" class="btn btn-primary">Add &amp; Connect Demo GPU</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- MODAL: API DOCUMENTATION OVERVIEW -->
+    <div class="modal-backdrop" id="apiDocsModal" hidden role="dialog" aria-modal="true" aria-labelledby="apiDocsModalTitle">
+      <div class="modal-card modal-card-lg">
+        <div class="modal-header">
+          <div>
+            <p class="section-meta">ComputeGrid BD REST Reference (Prototype)</p>
+            <h3 class="modal-title" id="apiDocsModalTitle">Developer API Specification</h3>
+          </div>
+          <button type="button" class="modal-close-btn" data-close-modal="apiDocsModal" aria-label="Close modal">
+            ✕
+          </button>
+        </div>
+        <div class="modal-body doc-stack">
+          <p class="panel-body-text">
+            Note: ComputeGrid BD is currently a frontend demonstration. The endpoints below illustrate
+            the planned production API contract for workload scheduling.
+          </p>
+          <div class="doc-block">
+            <h4>Authentication Header (Planned)</h4>
+            <pre class="code-block"><code>Authorization: Bearer cgbd_demo_placeholder_0000</code></pre>
+          </div>
+          <div class="doc-block">
+            <h4>Supported Workload Types</h4>
+            <ul class="clean-bullet-list">
+              <li><code>inference</code> — Stateless model serving with low-latency node selection.</li>
+              <li><code>fine-tuning</code> — Checkpointed LoRA / adapter runs tolerant of node handoffs.</li>
+              <li><code>batch</code> — Offline embedding or media processing queues.</li>
+            </ul>
+          </div>
+          <div class="doc-block">
+            <h4>Failure &amp; Re-Dispatch Guarantee (Planned)</h4>
+            <p class="panel-body-text">
+              If a contributor disconnects mid-job, the Orchestration Engine detects the missed
+              heartbeat and replays stateless inference requests to another healthy node.
+            </p>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-close-modal="apiDocsModal">Close Reference</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- TOAST NOTIFICATION CONTAINER -->
+    <div class="toast-region" id="toastRegion" aria-live="polite" aria-atomic="true"></div>
+  </body>
+</html>
